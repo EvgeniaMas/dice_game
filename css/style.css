@@ -1,0 +1,230 @@
+html {
+	padding-top: 23px;
+	
+  background-image: url(../img/back2.jpg);
+ background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+@media screen and (max-width:720px) {
+    html {
+    
+    background-position: center;
+}
+}
+
+h1 {
+
+	font-family: 'Lato', Verdana, cursive; 
+	font-weight: normal; 
+  color: #59af26;
+  font-size: 48px;
+  margin: 0 auto 30px;
+  text-align: center;
+  text-shadow: 3px 2px #666;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #000; }
+
+h2 {
+  text-align: center;
+  text-shadow: 3px 2px #59af26;
+  font-size: 28px;
+  margin: 0 auto 10px; }
+
+p {
+  color: #59af26;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 auto 20px;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #666; }
+
+
+button {
+   margin: 10px;
+	display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 100px;
+  border: solid rgb(4,88,192);
+  border-width: 3px 10px;
+  outline: none;
+  opacity: 1;
+  transition: .6s, opacity 0s 9999999s, visibility 0s 9999999s;
+} 
+button {
+  position: relative;
+  padding: calc(8px + 3px - 1px) calc(15px + 10px - 1px);
+  border: 1px solid rgba(62,153,239,.5);
+   background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
+}
+
+button:hover {
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+
+
+#rules {
+	margin-top: 5px;
+	font-family: 'Lato', Verdana, cursive; 
+	font-weight: normal; 
+  color: #fff;
+  font-size: 28px;
+}
+
+.rule_visible {
+	visibility: hidden;
+}
+
+#info {
+	height: 100px;
+	
+}
+
+
+// .result_visible {
+// 	visibility: hidden;
+// }
+
+
+
+#results {
+	
+	min-height: 50px;
+	font-family: 'Lato', Verdana, cursive; 
+	font-weight: normal; 
+  color: white;
+  font-size: 28px;
+  text-align: center;
+}
+
+
+
+
+#wrapper {
+  margin: 0 auto;
+  width: 80%; 
+
+}
+#card-flips {
+  float: left;
+  margin: 0 auto 20px;
+  text-align: center;
+  width: 100%; }
+  #card-flips:after {
+    clear: both; }
+  #card-flips div {
+    background: #59af26;
+    border-radius: 5px;
+    border: 2px solid #000;
+    display: inline-block;
+    height: 50px;
+    position: relative;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    width: 40px; }
+    #card-flips div.selected {
+      // background: #efefef;
+     
+      opacity: 0.6; }
+    #card-flips div.shut {
+      opacity: 0.7; }
+      #card-flips div.shut span:first-child {
+        opacity: 0; }
+      #card-flips div.shut span:last-child {
+        background: #000;
+        height: 50px;
+        left: 0;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        transition: width .5s ease-in-out, opacity .5s ease-in-out, visibility .5s ease-in-out, left .5s ease-in-out;
+        visibility: visible;
+        width: 40px; }
+    #card-flips div span {
+      display: table-cell;
+      font-size: 22px;
+      font-weight: bold;
+      height: 50px;
+      text-align: center;
+      text-shadow: 1px 1px #efefef;
+      vertical-align: middle;
+      width: 40px; }
+      #card-flips div span:last-child {
+        left: 40px;
+        opacity: 0;
+        position: absolute;
+        visibility: hidden;
+        height: 0;
+        transition: width .25s ease-in-out;
+        width: 0; }
+
+#dice {
+  margin: 20px auto 0;
+  text-align: center;
+  width: 100%; }
+  #dice .die {
+    background: #efefef;
+
+    border-radius: 10px;
+    border: 3px solid #59af26;
+    color: #000;
+    display: inline-block;
+    font-size: 28px;
+    height: 25px;
+    line-height: 28px;
+    margin: 0 10px 10px 0;
+    padding: 20px;
+    text-align: center;
+    text-shadow: 2px 2px #59af26;
+    width: 25px; }
+    #dice .die.die2 {
+      margin-right: 0; }
+
+.button-wrapper {
+  float: left;
+  margin: 0 auto 30px;
+  position: relative;
+  text-align: center;
+  width: 100%; }
+  .button-wrapper button {
+    display: inline-block;
+    margin-right: 10px; }
+    .button-wrapper button:last-child {
+      margin-right: 0; }
+
+#roll-total {
+  color: #000;
+  display: block;
+  font-size: 25px;
+  height: 25px;
+  margin: 0 auto 10px;
+  text-shadow: 2px 2px #59af26; }
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+/**
+ * Image replacement
+ */
+.is-hidden {
+  display: none; }
+
+.is-visible {
+  display: block !important; }
+
+/*# sourceMappingURL=style.css.map */

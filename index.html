@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dice</title>
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1 class="title_game">DICE GAME</h1>
+        </header>
+        <section id="card-flips">
+            <h2>CARDS</h2>
+            
+            <div>
+                <span>1</span>
+                <span></span>
+            </div>
+            <div>
+                <span>2</span>
+                <span></span>
+            </div>
+            <div>
+                <span>3</span>
+                <span></span>
+            </div>
+            <div>
+                <span>4</span>
+                <span></span>
+            </div>
+            <div>
+                <span>5</span>
+                <span></span>
+            </div>
+            <div>
+                <span>6</span>
+                <span></span>
+            </div>
+            <div>
+                <span>7</span>
+                <span></span>
+            </div>
+            <div>
+                <span>8</span>
+                <span></span>
+            </div>
+            <div>
+                <span>9</span>
+                <span></span>
+            </div>
+
+
+        </section>
+        <div class="button-wrapper">
+                <button type="button" disabled id="end-turn">Confirm your choice! </button>
+                <button id="end-game" disabled type="button">End current Game</button>
+        </div>
+        <section id="dice">
+            <h2>DICE</h2>
+            <div class="die die1">&nbsp;</div>
+            <div class="die die2">&nbsp;</div>
+            <div id="roll-total"></div>
+            <button type="button" id="roll-dice">Roll next dice!</button>
+            <br>
+            
+            <div id ="info">   
+            <p id="rules" class="rule_visible">Press "Roll the dice" to start your new game!</p>
+            <p class="result_visible" id="results"></p>
+            </div>
+        </section>
+
+
+    </div>
+
+</body>
+</html>
