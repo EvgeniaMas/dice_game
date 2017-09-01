@@ -91,7 +91,7 @@ $(document).ready(function(){
             $('#end-game').attr('disabled', false);
 
         } else {
-        	$('#results').text('Selected cards are not equal to total sum, try again!').fadeIn(3000).fadeOut(2000).end().remove();           
+        	$('#results').text('Selected cards are not equal to total sum, try again!').fadeIn(1000).fadeOut(4000).end().remove();           
             $('.selected').removeClass('selected');
             selectedCards.length = 0;
         }
@@ -107,7 +107,7 @@ $(document).ready(function(){
     var endSum = unusedCards.reduce(add, 0);
 
 
-    $('#results').text('Game Over: You did not win.\nYour end score was: ' + endSum).fadeIn(2000).fadeOut(2000).end().remove();
+    $('#results').text('Game Over: You did not win.\nYour end score was: ' + endSum).fadeIn(1000).fadeOut(4000).end().remove();
     resetGame();
   });
 
