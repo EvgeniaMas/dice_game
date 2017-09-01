@@ -1,24 +1,20 @@
 var selectedCards = [],
     unusedCards = [],
+    
  rollDice = function () {
     var dice = Math.floor(Math.random() * (6 - 1) + 1),
-
         dice2 = Math.floor(Math.random() * (6 - 1) + 1);
-
-
     return [dice, dice2];
 },
+	
 
 diceRoller = function () {
     var diceValues = rollDice(),
         die1 = diceValues[0],
         die2 = diceValues[1];
     totalRoll = diceValues[0] + diceValues[1];
-
-
     $('.die1').text(diceValues[0]);
     $('.die2').text(diceValues[1]);
-
     return totalRoll;
 },
 diceTotal = function(){
@@ -27,9 +23,10 @@ diceTotal = function(){
 },
 add = function(a,b) {
 
-                return a + b;
+    return a + b;
 
 },
+
 resetGame = function(){
     selectedCards.length = 0;
     unusedCards.length = 0;
@@ -43,27 +40,31 @@ resetGame = function(){
     $('#rules').removeClass('rule_visible');
 };
 
+
+
 $(document).ready(function(){
 
-
   $('#roll-dice').on('click', function(){
-     $('#rules').addClass('rule_visible');
+    $('#rules').addClass('rule_visible');    
     diceRoller();
-    diceTotal();
+    diceTotal();   
+   
     
     $(this).attr('disabled', true);
     $('#end-turn').attr('disabled', false);
-    if($('#card-flips').children('div').hasClass('shut')){
+    if($('#card-flips').children('div').hasClass('shut')){    	
         return false;
-    } else {
-        $('#card-flips').children('div').addClass('selectable');
+    } 
+
+    else {
+    	$('#card-flips').children('div').addClass('selectable');
     }
   });
 
 
   $('#card-flips div').on('click', function(){
 
-    if ($(this).hasClass('selectable') && !$(this).hasClass('shut')){
+      if ($(this).hasClass('selectable') && !$(this).hasClass('shut')){
 
         $(this).toggleClass('selected');
 
@@ -72,6 +73,9 @@ $(document).ready(function(){
     }
 
   });
+
+
+
   $('#end-turn').on('click', function(){
     $('.selected').each(function(){
         var cardVal = $(this).children('span:first-child').text();
@@ -80,23 +84,37 @@ $(document).ready(function(){
     });
     var sum = selectedCards.reduce(add, 0);
 
-
-
         if (sum === totalRoll){
             $('.selected').removeClass().addClass('shut');
-            selectedCards.length = 0;
+            selectedCards.length = 0;          
+
 
             $('#roll-dice').attr('disabled', false);
             $(this).attr('disabled', true);
             $('#end-game').attr('disabled', false);
-
-        } else {
+        }
+       
+        else  {
         	$('#results').text('Selected cards are not equal to total sum, try again!').fadeIn(1000).fadeOut(4000).end().remove();           
             $('.selected').removeClass('selected');
             selectedCards.length = 0;
         }
+		
+
+        if ($('.shut').length ==9) {
+        	// var a = document.getElementsByClassName('shut').length;
+        	// alert (a);
+        	$('#results').text('Congratulations!!! You won it!').fadeIn(1000).fadeOut(4000).end().remove(); 
+        	 resetGame();          
+        }
+
+        else {
+        	return false;
+        }
 
     });
+
+
   $('#end-game').on('click', function(){
     $('.selectable').each(function(i){
         var unusedVal = $(this).text();
@@ -107,9 +125,9 @@ $(document).ready(function(){
     var endSum = unusedCards.reduce(add, 0);
 
 
-    $('#results').text('Game Over: You did not win.\nYour end score was: ' + endSum).fadeIn(1000).fadeOut(4000).end().remove();
+    $('#results').text('Game over: you lost. Left ' + endSum + ' extra scores').fadeIn(1000).fadeOut(4000).end().remove();
     resetGame();
   });
 
-
 });
+
